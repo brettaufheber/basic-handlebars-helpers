@@ -30,7 +30,8 @@
   "devDependencies": {
     "jest": "^27.5.x",
     "jest-sonar-reporter": "^2.0.x",
-    "sonarqube-scanner": "^2.8.x"
+    "sonarqube-scanner": "^2.8.x",
+    "asciidoctor": "^2.2.x"
   },
   "jest": {
     "verbose": true,

@@ -1,9 +1,34 @@
 const utils = require('../lib/utils');
+const asciidoc = require('../asciidoc');
 const {vsprintf} = require('sprintf-js');
 
 module.exports = {
     category: 'String Operations',
     helpers: {
+        'asciidoc': {
+            parameters: {
+                regular: [
+                    {
+                        types: ['string'],
+                        optional: false
+                    }
+                ],
+                spread: null,
+                hash: {
+                    'inline': {
+                        types: ['implicit-boolean'],
+                        default: false
+                    }
+                }
+            },
+            method: ((args, hash) => {
+
+                const content = args[0];
+                const inline = utils.toBoolean(hash.inline);
+
+                return asciidoc.convert(content, inline);
+            })
+        },
         'format': {
             parameters: {
                 regular: [

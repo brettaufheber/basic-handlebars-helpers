@@ -1,4 +1,6 @@
 module.exports = {
     helpers: require('./src/index'),
-    utils: {}
+    utils: {
+        asciidoc: require('./src/asciidoc')
+    }
 };

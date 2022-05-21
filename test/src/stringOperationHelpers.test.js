@@ -1,7 +1,26 @@
-const {helpers} = require('../../index');
+const {helpers, utils} = require('../../index');
 const hbs = require("handlebars");
 
 helpers.register();
+utils.asciidoc.setupAsciidoctor(require('asciidoctor')(), {})
+
+test('test Handlebars helper "asciidoc"', async () => {
+
+    const options = {
+        content: 'https://asciidoctor.org[AsciiDoc] is a _lightweight_ markup language'
+    };
+
+    expect(() => hbs.compile('{{asciidoc}}')()).toThrow(TypeError);
+    expect(() => hbs.compile('{{asciidoc null null}}')()).toThrow(TypeError);
+
+    expect(hbs.compile('{{{asciidoc content inline=false}}}')(options))
+        .toBe('<div class="paragraph">\n' +
+            '<p><a href="https://asciidoctor.org">AsciiDoc</a> is a <em>lightweight</em> markup language</p>\n' +
+            '</div>');
+
+    expect(hbs.compile('{{{asciidoc content inline=true}}}')(options))
+        .toBe('<a href="https://asciidoctor.org">AsciiDoc</a> is a <em>lightweight</em> markup language');
+});
 
 test('test Handlebars helper "format"', async () => {
 
