@@ -1,0 +1,59 @@
+{
+  "name": "basic-handlebars-helpers",
+  "version": "0.1.0",
+  "description": "A basic set of Handlebars helpers",
+  "license": "MIT",
+  "author": {
+    "name": "Eric Löffler",
+    "email": "eric.loeffler@opalia.systems",
+    "url": "https://github.com/brettaufheber"
+  },
+  "homepage": "https://github.com/brettaufheber/basic-handlebars-helpers#readme",
+  "bugs": {
+    "url": "https://github.com/brettaufheber/basic-handlebars-helpers/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brettaufheber/basic-handlebars-helpers.git"
+  },
+  "scripts": {
+    "test": "jest",
+    "scan": "sonar-scanner"
+  },
+  "dependencies": {
+    "kind-of": "^6.0.x",
+    "sprintf-js": "^1.1.x",
+    "jsonpath-plus": "^7.0.x",
+    "js-yaml": "^4.1.x",
+    "handlebars": "^4.7.x"
+  },
+  "devDependencies": {
+    "jest": "^27.5.x",
+    "jest-sonar-reporter": "^2.0.x",
+    "sonarqube-scanner": "^2.8.x"
+  },
+  "jest": {
+    "verbose": true,
+    "testMatch": [
+      "**/test/src/**/*.test.js"
+    ],
+    "testTimeout": 60000,
+    "testResultsProcessor": "jest-sonar-reporter",
+    "collectCoverage": true,
+    "coverageDirectory": "./tmp/coverage",
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text"
+    ],
+    "collectCoverageFrom": [
+      "**/src/**/*.js",
+      "!**/node_modules/**"
+    ]
+  },
+  "jestSonar": {
+    "reportPath": "./tmp",
+    "reportFile": "test-report.xml",
+    "indent": 4
+  }
+}
