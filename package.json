@@ -17,6 +17,7 @@
     "url": "git+https://github.com/brettaufheber/basic-handlebars-helpers.git"
   },
   "scripts": {
+    "make-readme": "node ./src/makeReadme.js",
     "test": "jest",
     "scan": "sonar-scanner"
   },

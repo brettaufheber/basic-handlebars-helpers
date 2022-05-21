@@ -1,0 +1,101 @@
+# {{{package.name}}}
+
+This project is a basic set of {{{length (jsonpath definitions "$[*].helpers.*~")}}} Handlebars helpers in {{{length (jsonpath definitions "$[*].category")}}} categories.
+
+## Installation
+
+Install {{{package.name}}} with npm:
+
+```sh
+npm install --save {{{package.name}}}
+```
+
+## Usage
+
+Register the Handlebars helpers.
+
+```js
+require('{{{package.name}}}').helpers.register();
+```
+
+To use the "asciidoc" helper, the [Asciidoctor](https://www.npmjs.com/package/asciidoctor) dependency must be installed first. The Asciidoctor instance is used to set up this helper.
+
+```js
+const asciidoctor = require('asciidoctor')();
+
+require('{{{package.name}}}').helpers.register();
+require('{{{package.name}}}').utils.asciidoc.setupAsciidoctor(asciidoctor, {/* attributes here */});
+```
+
+## Categories
+
+{{#each definitions}}
+
+### {{{this.category}}}
+
+{{{this.description}}}
+
+{{#each (keys this.helpers)}}
+[{{{.}}}](#-{{{.}}}-){{#if (not @last)}},{{/if}}
+{{/each}}
+
+{{/each}}
+
+## Helpers
+
+The version {{{package.version}}} was used to generate this API documentation.
+
+{{#each definitions}}
+
+### Category: {{{this.category}}}
+
+{{{this.description}}}
+
+{{#each this.helpers}}
+
+#### \{{ {{@key}} }}
+
+{{{this.description}}}
+
+{{#if (or this.parameters.regular this.parameters.spread)}}
+Parameters:
+{{/if}}
+
+{{#each this.parameters.regular}}
+
+* {{description}}
+
+    * types: {{{join types ", "}}}
+    * optional: {{{optional}}}
+
+{{/each}}
+
+{{#this.parameters.spread}}
+
+* {{description}}
+
+    * types: ...{{{join types ", ..."}}} (spread parameters) {{#if allSameType}}(all should be of the same type){{/if}}
+    * minimum: {{{minimum}}}
+
+{{/this.parameters.spread}}
+
+{{#if this.parameters.hash}}
+Hash Parameters:
+{{/if}}
+
+{{#each this.parameters.hash}}
+
+* ```{{@key}}``` {{description}}
+
+    * types: {{{join types ", "}}}
+    * default: {{{default}}}
+
+{{/each}}
+
+{{/each}}
+
+{{/each}}
+
+<br />
+
+## {{{license}}}
