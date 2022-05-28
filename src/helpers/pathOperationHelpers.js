@@ -3,15 +3,19 @@ const path = require('path');
 
 module.exports = {
     category: 'Path Operations',
+    description: 'Helpers for working with path strings.',
     helpers: {
         'basename': {
+            description: 'Gets the last part of a given path.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given path.',
                         types: ['string'],
                         optional: false
                     },
                     {
+                        description: 'An optional file extension.',
                         types: ['string'],
                         optional: true
                     }
@@ -28,9 +32,11 @@ module.exports = {
             })
         },
         'dirname': {
+            description: 'Gets the directory name of a given path.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given path.',
                         types: ['string'],
                         optional: false
                     }
@@ -46,9 +52,11 @@ module.exports = {
             })
         },
         'extname': {
+            description: 'Gets the file extension of the given path.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given path.',
                         types: ['string'],
                         optional: false
                     }
@@ -64,9 +72,11 @@ module.exports = {
             })
         },
         'is-absolute-path': {
+            description: 'Checks whether the given path is absolute.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given path.',
                         types: ['string'],
                         optional: false
                     }
@@ -82,9 +92,11 @@ module.exports = {
             })
         },
         'normalize-path': {
+            description: 'Normalizes a given path.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given path.',
                         types: ['string'],
                         optional: false
                     }
@@ -100,13 +112,16 @@ module.exports = {
             })
         },
         'relative-path': {
+            description: 'Gets a relative path.',
             parameters: {
                 regular: [
                     {
+                        description: 'A path to relativize from this path to another path.',
                         types: ['string'],
                         optional: false
                     },
                     {
+                        description: 'A path to relativize from the other path to this path.',
                         types: ['string'],
                         optional: false
                     }
@@ -123,9 +138,11 @@ module.exports = {
             })
         },
         'resolve-path': {
+            description: 'Gets a resolved path from multiple paths.',
             parameters: {
                 regular: null,
                 spread: {
+                    description: 'The given paths to resolve.',
                     types: ['string'],
                     minimum: 1
                 },
@@ -143,9 +160,11 @@ module.exports = {
             })
         },
         'join-path': {
+            description: 'Joins all given paths together.',
             parameters: {
                 regular: null,
                 spread: {
+                    description: 'The given paths to join.',
                     types: ['string'],
                     minimum: 1
                 },

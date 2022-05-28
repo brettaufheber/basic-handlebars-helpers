@@ -3,11 +3,14 @@ const kindOf = require('kind-of');
 
 module.exports = {
     category: 'Iterable Operations',
+    description: 'Helpers for iterable types such as strings, arrays and objects.',
     helpers: {
         'length': {
+            description: 'Gets the length of an iterable value.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given iterable value.',
                         types: ['string', 'array', 'object'],
                         optional: false
                     }
@@ -24,9 +27,11 @@ module.exports = {
             })
         },
         'empty': {
+            description: 'Checks whether an iterable value is empty.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given iterable value.',
                         types: ['string', 'array', 'object'],
                         optional: false
                     }
@@ -43,14 +48,17 @@ module.exports = {
             })
         },
         'in': {
+            description: 'Checks whether all of the given elements are included in an iterable value.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given iterable value.',
                         types: ['string', 'array', 'object'],
                         optional: false
                     }
                 ],
                 spread: {
+                    description: 'The values to test.',
                     types: ['any'],
                     minimum: 1
                 },
@@ -69,14 +77,17 @@ module.exports = {
             })
         },
         'any-in': {
+            description: 'Checks whether any of the given elements is included in an iterable value.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given iterable value.',
                         types: ['string', 'array', 'object'],
                         optional: false
                     }
                 ],
                 spread: {
+                    description: 'The values to test.',
                     types: ['any'],
                     minimum: 1
                 },
@@ -95,13 +106,16 @@ module.exports = {
             })
         },
         'chunk': {
+            description: 'Gets chunks of an iterable value with variable length.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given iterable value.',
                         types: ['string', 'array', 'object'],
                         optional: false
                     },
                     {
+                        description: 'The size of the chunks.',
                         types: ['number'],
                         optional: false
                     }
@@ -129,17 +143,21 @@ module.exports = {
             })
         },
         'slice': {
+            description: 'Gets a contiguous subsequence of an iterable value.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given iterable value.',
                         types: ['string', 'array', 'object'],
                         optional: false
                     },
                     {
+                        description: 'The inclusive index at which the slice begins.',
                         types: ['number'],
                         optional: false
                     },
                     {
+                        description: 'The exclusive index at which the slice ends.',
                         types: ['number'],
                         optional: true
                     }
@@ -166,9 +184,11 @@ module.exports = {
             })
         },
         'reverse': {
+            description: 'Gets the elements of an iterable value in reverse order.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given iterable value.',
                         types: ['string', 'array', 'object'],
                         optional: false
                     }
@@ -193,9 +213,11 @@ module.exports = {
             })
         },
         'shuffle': {
+            description: 'Shuffles the elements of an iterable value in random order.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given iterable value.',
                         types: ['string', 'array', 'object'],
                         optional: false
                     }
@@ -220,23 +242,28 @@ module.exports = {
             })
         },
         'sort': {
+            description: 'Sorts the elements of an iterable value.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given iterable value.',
                         types: ['string', 'array', 'object'],
                         optional: false
                     }
                 ],
                 spread: {
+                    description: 'The keys or indices used to find the values to compare.',
                     types: ['any'],
                     minimum: 0
                 },
                 hash: {
                     'descending': {
+                        description: 'This flag switches from ascending to descending order.',
                         types: ['implicit-boolean'],
                         default: false
                     },
                     'ignorecase': {
+                        description: 'This flag allows ignore-case comparison.',
                         types: ['implicit-boolean'],
                         default: false
                     }
@@ -301,9 +328,11 @@ module.exports = {
             })
         },
         'first': {
+            description: 'Gets the first element of an iterable value.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given iterable value.',
                         types: ['string', 'array', 'object'],
                         optional: false
                     }
@@ -324,9 +353,11 @@ module.exports = {
             })
         },
         'last': {
+            description: 'Gets the last element of an iterable value.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given iterable value.',
                         types: ['string', 'array', 'object'],
                         optional: false
                     }
@@ -347,13 +378,16 @@ module.exports = {
             })
         },
         'at': {
+            description: 'Gets an element at a specific index of an iterable value.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given iterable value.',
                         types: ['string', 'array', 'object'],
                         optional: false
                     },
                     {
+                        description: 'The index of the value to get.',
                         types: ['any'],
                         optional: false
                     }
@@ -375,9 +409,11 @@ module.exports = {
             })
         },
         'concat': {
+            description: 'Concatenates two or more strings or arrays.',
             parameters: {
                 regular: null,
                 spread: {
+                    description: 'The strings or arrays to concatenate.',
                     types: ['string', 'array'],
                     minimum: 2,
                     allSameType: true,
@@ -393,13 +429,16 @@ module.exports = {
             })
         },
         'flatten': {
+            description: 'Flattens an array with variable depth.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given array.',
                         types: ['array'],
                         optional: false
                     },
                     {
+                        description: 'The depth to flatten. Zero means infinite depth. The default value is 1.',
                         types: ['number'],
                         optional: true
                     }
@@ -419,9 +458,11 @@ module.exports = {
             })
         },
         'keys': {
+            description: 'Gets the keys of an object.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given object.',
                         types: ['object'],
                         optional: false
                     }
@@ -437,9 +478,11 @@ module.exports = {
             })
         },
         'values': {
+            description: 'Gets the values of an object.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given object.',
                         types: ['object'],
                         optional: false
                     }

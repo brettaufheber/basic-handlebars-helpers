@@ -4,11 +4,14 @@ const {vsprintf} = require('sprintf-js');
 
 module.exports = {
     category: 'String Operations',
+    description: 'Helpers for working with strings.',
     helpers: {
         'asciidoc': {
+            description: 'Converts AsciiDoc to HTML.',
             parameters: {
                 regular: [
                     {
+                        description: 'A string with AsciiDoc content.',
                         types: ['string'],
                         optional: false
                     }
@@ -16,6 +19,7 @@ module.exports = {
                 spread: null,
                 hash: {
                     'inline': {
+                        description: 'This flag switches the doctype between article and inline.',
                         types: ['implicit-boolean'],
                         default: false
                     }
@@ -30,14 +34,17 @@ module.exports = {
             })
         },
         'format': {
+            description: 'Formats a string in the way of the sprintf method.',
             parameters: {
                 regular: [
                     {
+                        description: 'The format string.',
                         types: ['string'],
                         optional: false
                     }
                 ],
                 spread: {
+                    description: 'The arguments for the format string.',
                     types: ['any'],
                     minimum: 0
                 },
@@ -52,9 +59,11 @@ module.exports = {
             })
         },
         'lowercase': {
+            description: 'Gets the lowercase string.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given string.',
                         types: ['string'],
                         optional: false
                     }
@@ -70,9 +79,11 @@ module.exports = {
             })
         },
         'uppercase': {
+            description: 'Gets the uppercase string.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given string.',
                         types: ['string'],
                         optional: false
                     }
@@ -88,9 +99,11 @@ module.exports = {
             })
         },
         'capitalize': {
+            description: 'Gets the capitalized string.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given string.',
                         types: ['string'],
                         optional: false
                     }
@@ -98,6 +111,7 @@ module.exports = {
                 spread: null,
                 hash: {
                     'global': {
+                        description: 'This flag allows to capitalize all words.',
                         types: ['implicit-boolean'],
                         default: false
                     }
@@ -115,17 +129,21 @@ module.exports = {
             })
         },
         'replace': {
+            description: 'Replaces some parts of a string by a regular expression.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given string.',
                         types: ['string'],
                         optional: false
                     },
                     {
+                        description: 'The pattern.',
                         types: ['string'],
                         optional: false
                     },
                     {
+                        description: 'The replacement.',
                         types: ['string'],
                         optional: false
                     }
@@ -133,10 +151,12 @@ module.exports = {
                 spread: null,
                 hash: {
                     'global': {
+                        description: 'This flag allows replacing with any occurrence instead of just the first match.',
                         types: ['implicit-boolean'],
                         default: false
                     },
                     'multiline': {
+                        description: 'This flag allows matching every line as a separate input.',
                         types: ['implicit-boolean'],
                         default: false
                     }
@@ -155,13 +175,16 @@ module.exports = {
             })
         },
         'match': {
+            description: 'Extracts parts of a string by a regular expression.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given string.',
                         types: ['string'],
                         optional: false
                     },
                     {
+                        description: 'The pattern.',
                         types: ['string'],
                         optional: false
                     }
@@ -169,10 +192,12 @@ module.exports = {
                 spread: null,
                 hash: {
                     'global': {
+                        description: 'This flag allows extracting all occurrences instead of just the first match.',
                         types: ['implicit-boolean'],
                         default: false
                     },
                     'multiline': {
+                        description: 'This flag allows matching every line as a separate input.',
                         types: ['implicit-boolean'],
                         default: false
                     }
@@ -199,13 +224,16 @@ module.exports = {
             })
         },
         'matches': {
+            description: 'Checks whether a string matches a regular expression.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given string.',
                         types: ['string'],
                         optional: false
                     },
                     {
+                        description: 'The pattern.',
                         types: ['string'],
                         optional: false
                     }
@@ -213,6 +241,7 @@ module.exports = {
                 spread: null,
                 hash: {
                     'multiline': {
+                        description: 'This flag allows matching every line as a separate input.',
                         types: ['implicit-boolean'],
                         default: false
                     }
@@ -229,9 +258,11 @@ module.exports = {
             })
         },
         'blank': {
+            description: 'Checks whether a string is empty or contains only spaces.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given string.',
                         types: ['string'],
                         optional: false
                     }
@@ -247,13 +278,16 @@ module.exports = {
             })
         },
         'starts-with': {
+            description: 'Checks whether a string starts with another string.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given string.',
                         types: ['string'],
                         optional: false
                     },
                     {
+                        description: 'The search string.',
                         types: ['string'],
                         optional: false
                     }
@@ -270,13 +304,16 @@ module.exports = {
             })
         },
         'ends-with': {
+            description: 'Checks whether a string ends with another string.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given string.',
                         types: ['string'],
                         optional: false
                     },
                     {
+                        description: 'The search string.',
                         types: ['string'],
                         optional: false
                     }
@@ -293,9 +330,11 @@ module.exports = {
             })
         },
         'trim': {
+            description: 'Gets a string without leading or trailing spaces.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given string.',
                         types: ['string'],
                         optional: false
                     }
@@ -311,9 +350,11 @@ module.exports = {
             })
         },
         'trim-left': {
+            description: 'Gets a string without leading spaces.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given string.',
                         types: ['string'],
                         optional: false
                     }
@@ -329,9 +370,11 @@ module.exports = {
             })
         },
         'trim-right': {
+            description: 'Gets a string without trailing spaces.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given string.',
                         types: ['string'],
                         optional: false
                     }
@@ -347,13 +390,16 @@ module.exports = {
             })
         },
         'split': {
+            description: 'Splits a string into an array by a separator.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given string.',
                         types: ['string'],
                         optional: false
                     },
                     {
+                        description: 'The separator.',
                         types: ['string'],
                         optional: false
                     }
@@ -373,13 +419,16 @@ module.exports = {
             })
         },
         'join': {
+            description: 'Joins an array of strings together to one string by a separator.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given array of strings.',
                         types: ['array'],
                         optional: false
                     },
                     {
+                        description: 'The separator. The default value is an empty string.',
                         types: ['string'],
                         optional: true
                     }

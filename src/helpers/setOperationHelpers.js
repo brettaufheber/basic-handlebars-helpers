@@ -3,17 +3,21 @@ const kindOf = require('kind-of');
 
 module.exports = {
     category: 'Set Operations',
+    description: 'Helpers to apply set operations to arrays and objects.',
     helpers: {
         'union': {
+            description: 'Creates the union of multiple arrays or objects',
             parameters: {
                 regular: null,
                 spread: {
+                    description: 'The given arrays or objects.',
                     types: ['array', 'object'],
                     minimum: 1,
                     allSameType: true,
                 },
                 hash: {
                     'deep': {
+                        description: 'This flag allows merging data structures recursively.',
                         types: ['implicit-boolean'],
                         default: false
                     }
@@ -31,9 +35,11 @@ module.exports = {
             })
         },
         'intersection': {
+            description: 'Creates the intersection of multiple arrays or objects',
             parameters: {
                 regular: null,
                 spread: {
+                    description: 'The given arrays or objects.',
                     types: ['array', 'object'],
                     minimum: 1,
                     allSameType: true,
@@ -53,9 +59,11 @@ module.exports = {
             })
         },
         'sym-difference': {
+            description: 'Creates the symmetric difference of multiple arrays or objects',
             parameters: {
                 regular: null,
                 spread: {
+                    description: 'The given arrays or objects.',
                     types: ['array', 'object'],
                     minimum: 1,
                     allSameType: true,
@@ -75,9 +83,11 @@ module.exports = {
             })
         },
         'difference': {
+            description: 'Creates the difference by applying the first one to all further arrays or objects',
             parameters: {
                 regular: null,
                 spread: {
+                    description: 'The given arrays or objects.',
                     types: ['array', 'object'],
                     minimum: 2,
                     allSameType: true,

@@ -5,16 +5,20 @@ const yaml = require('js-yaml');
 
 module.exports = {
     category: 'Essential Operations',
+    description: 'Helpers that make the Handlebars template engine usable.',
     helpers: {
         'equals': {
+            description: 'Checks whether the arguments are equal.',
             parameters: {
                 regular: null,
                 spread: {
+                    description: 'The values to compare.',
                     types: ['any'],
                     minimum: 2
                 },
                 hash: {
                     'deep': {
+                        description: 'This flag allows comparing data structures recursively.',
                         types: ['implicit-boolean'],
                         default: false
                     }
@@ -31,14 +35,17 @@ module.exports = {
             })
         },
         'not-equals': {
+            description: 'Checks whether the arguments are not equal.',
             parameters: {
                 regular: null,
                 spread: {
+                    description: 'The values to compare.',
                     types: ['any'],
                     minimum: 2
                 },
                 hash: {
                     'deep': {
+                        description: 'This flag allows comparing data structures recursively.',
                         types: ['implicit-boolean'],
                         default: false
                     }
@@ -55,9 +62,11 @@ module.exports = {
             })
         },
         'and': {
+            description: 'Applies the logical conjunction to multiple values.',
             parameters: {
                 regular: null,
                 spread: {
+                    description: 'The values on which the AND operation is applied.',
                     types: ['implicit-boolean'],
                     minimum: 0
                 },
@@ -69,9 +78,11 @@ module.exports = {
             })
         },
         'or': {
+            description: 'Applies the logical disjunction to multiple values.',
             parameters: {
                 regular: null,
                 spread: {
+                    description: 'The values on which the OR operation is applied.',
                     types: ['implicit-boolean'],
                     minimum: 0
                 },
@@ -83,9 +94,11 @@ module.exports = {
             })
         },
         'not': {
+            description: 'Applies the logical negation to multiple values.',
             parameters: {
                 regular: null,
                 spread: {
+                    description: 'The values on which the NOT operation is applied.',
                     types: ['implicit-boolean'],
                     minimum: 0
                 },
@@ -97,9 +110,11 @@ module.exports = {
             })
         },
         'xor': {
+            description: 'Applies the logical exclusive disjunction to multiple values.',
             parameters: {
                 regular: null,
                 spread: {
+                    description: 'The values on which the XOR operation is applied.',
                     types: ['implicit-boolean'],
                     minimum: 0
                 },
@@ -111,17 +126,21 @@ module.exports = {
             })
         },
         'iif': {
+            description: 'Applies if-then-else in one method (known as inline if or ternary if).',
             parameters: {
                 regular: [
                     {
+                        description: 'The condition.',
                         types: ['implicit-boolean'],
                         optional: false
                     },
                     {
+                        description: 'The value used if condition is true.',
                         types: ['any'],
                         optional: false
                     },
                     {
+                        description: 'The value used if condition is false.',
                         types: ['any'],
                         optional: false
                     }
@@ -139,9 +158,11 @@ module.exports = {
             })
         },
         'type-of': {
+            description: 'Gets the type of a value.',
             parameters: {
                 regular: [
                     {
+                        description: 'The value for which the type is to be determined.',
                         types: ['any'],
                         optional: false
                     }
@@ -157,9 +178,11 @@ module.exports = {
             })
         },
         'to-boolean': {
+            description: 'Converts a value to a boolean type.',
             parameters: {
                 regular: [
                     {
+                        description: 'The value to be converted to boolean.',
                         types: ['any'],
                         optional: false
                     }
@@ -175,9 +198,11 @@ module.exports = {
             })
         },
         'to-number': {
+            description: 'Converts a value to a number type.',
             parameters: {
                 regular: [
                     {
+                        description: 'The value to be converted to number.',
                         types: ['any'],
                         optional: false
                     }
@@ -196,9 +221,11 @@ module.exports = {
             })
         },
         'to-string': {
+            description: 'Converts a value to a string type.',
             parameters: {
                 regular: [
                     {
+                        description: 'The value to be converted to string.',
                         types: ['any'],
                         optional: false
                     }
@@ -218,9 +245,11 @@ module.exports = {
             })
         },
         'to-json': {
+            description: 'Converts a value to a JSON string.',
             parameters: {
                 regular: [
                     {
+                        description: 'The value to be converted to a JSON string.',
                         types: ['any'],
                         optional: false
                     }
@@ -228,6 +257,7 @@ module.exports = {
                 spread: null,
                 hash: {
                     'indent': {
+                        description: 'The depth to indent. Zero means no indentation.',
                         types: ['number'],
                         default: 0
                     }
@@ -242,9 +272,11 @@ module.exports = {
             })
         },
         'from-json': {
+            description: 'Parses a JSON string.',
             parameters: {
                 regular: [
                     {
+                        description: 'The value to be parsed.',
                         types: ['string'],
                         optional: false
                     }
@@ -260,9 +292,11 @@ module.exports = {
             })
         },
         'to-yaml': {
+            description: 'Converts a value to a YAML string.',
             parameters: {
                 regular: [
                     {
+                        description: 'The value to be converted to a YAML string.',
                         types: ['any'],
                         optional: false
                     }
@@ -278,9 +312,11 @@ module.exports = {
             })
         },
         'from-yaml': {
+            description: 'Parses a YAML string.',
             parameters: {
                 regular: [
                     {
+                        description: 'The value to be parsed.',
                         types: ['string'],
                         optional: false
                     }
@@ -288,6 +324,7 @@ module.exports = {
                 spread: null,
                 hash: {
                     'multiple': {
+                        description: 'This flag allows parsing of multi-document sources.',
                         types: ['implicit-boolean'],
                         default: false
                     }
@@ -305,9 +342,11 @@ module.exports = {
             })
         },
         'array': {
+            description: 'Creates an array from arguments.',
             parameters: {
                 regular: null,
                 spread: {
+                    description: 'The elements of the new array.',
                     types: ['any'],
                     minimum: 0
                 },
@@ -319,6 +358,7 @@ module.exports = {
             })
         },
         'object': {
+            description: 'Creates an object from hash arguments.',
             parameters: {
                 regular: null,
                 spread: null,
@@ -330,17 +370,21 @@ module.exports = {
             })
         },
         'range': {
+            description: 'Creates a range of numbers as an array.',
             parameters: {
                 regular: [
                     {
+                        description: 'The inclusive number at which the range is started.',
                         types: ['number'],
                         optional: false
                     },
                     {
+                        description: 'The inclusive number at which the range is stopped.',
                         types: ['number'],
                         optional: true
                     },
                     {
+                        description: 'The increment step or decrement step if this number negative. The default is 1.',
                         types: ['number'],
                         optional: true
                     }
@@ -363,9 +407,11 @@ module.exports = {
             })
         },
         'get-root': {
+            description: 'Gets the a value from the root object by a sequence of keys and indices.',
             parameters: {
                 regular: null,
                 spread: {
+                    description: 'The keys or indices used to find a value in the data structure.',
                     types: ['any'],
                     minimum: 0
                 },
@@ -377,14 +423,17 @@ module.exports = {
             })
         },
         'get': {
+            description: 'Gets a value from a data structure by a sequence of keys and indices.',
             parameters: {
                 regular: [
                     {
+                        description: 'The data structure.',
                         types: ['array', 'object'],
                         optional: false
                     }
                 ],
                 spread: {
+                    description: 'The keys or indices used to find a value in the data structure.',
                     types: ['any'],
                     minimum: 0
                 },
@@ -399,13 +448,16 @@ module.exports = {
             })
         },
         'jsonpath': {
+            description: 'Gets a value from a data structure by a JSONPath expression.',
             parameters: {
                 regular: [
                     {
+                        description: 'The data structure.',
                         types: ['array', 'object'],
                         optional: false
                     },
                     {
+                        description: 'The query.',
                         types: ['string'],
                         optional: false
                     }

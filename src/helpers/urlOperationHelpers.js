@@ -3,11 +3,14 @@ const kindOf = require('kind-of');
 
 module.exports = {
     category: 'URL Operations',
+    description: 'Helpers for working with URL strings.',
     helpers: {
         'parse-url': {
+            description: 'Parses an URL string and returns an object with URL parts.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given URL string.',
                         types: ['string'],
                         optional: false
                     }
@@ -41,17 +44,21 @@ module.exports = {
             })
         },
         'with-auth': {
+            description: 'Gets an URL with a specified username and password.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given URL string.',
                         types: ['string'],
                         optional: false
                     },
                     {
+                        description: 'The username.',
                         types: ['string', 'null'],
                         optional: false
                     },
                     {
+                        description: 'The password.',
                         types: ['string', 'null'],
                         optional: true
                     }
@@ -73,13 +80,16 @@ module.exports = {
             })
         },
         'with-hostname': {
+            description: 'Gets an URL with a specified hostname.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given URL string.',
                         types: ['string'],
                         optional: false
                     },
                     {
+                        description: 'The hostname.',
                         types: ['string'],
                         optional: false
                     }
@@ -99,13 +109,16 @@ module.exports = {
             })
         },
         'with-port': {
+            description: 'Gets an URL with a specified port.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given URL string.',
                         types: ['string'],
                         optional: false
                     },
                     {
+                        description: 'The port.',
                         types: ['string', 'number', 'null'],
                         optional: false
                     }
@@ -125,13 +138,16 @@ module.exports = {
             })
         },
         'with-pathname': {
+            description: 'Gets an URL with a specified pathname.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given URL string.',
                         types: ['string'],
                         optional: false
                     },
                     {
+                        description: 'The pathname.',
                         types: ['string', 'null'],
                         optional: false
                     }
@@ -151,13 +167,16 @@ module.exports = {
             })
         },
         'with-query': {
+            description: 'Gets an URL with a specified query part.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given URL string.',
                         types: ['string'],
                         optional: false
                     },
                     {
+                        description: 'The query part.',
                         types: ['string', 'array', 'object', 'null'],
                         optional: false
                     }
@@ -165,6 +184,7 @@ module.exports = {
                 spread: null,
                 hash: {
                     'append': {
+                        description: 'This flag allows to append to an existing query part.',
                         types: ['implicit-boolean'],
                         default: false
                     }
@@ -206,13 +226,16 @@ module.exports = {
             })
         },
         'with-fragment': {
+            description: 'Gets an URL with a specified fragment.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given URL string.',
                         types: ['string'],
                         optional: false
                     },
                     {
+                        description: 'The fragment.',
                         types: ['string', 'null'],
                         optional: false
                     }

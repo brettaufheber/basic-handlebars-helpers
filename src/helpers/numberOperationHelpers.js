@@ -1,10 +1,13 @@
 module.exports = {
     category: 'Number Operations',
+    description: 'Helpers for working with numbers.',
     helpers: {
         'is-nan': {
+            description: 'Checks whether a number is NaN.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given number.',
                         types: ['number'],
                         optional: false
                     }
@@ -20,9 +23,11 @@ module.exports = {
             })
         },
         'is-finite': {
+            description: 'Checks whether a number is finite.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given number.',
                         types: ['number'],
                         optional: false
                     }
@@ -38,9 +43,11 @@ module.exports = {
             })
         },
         'lt': {
+            description: 'Checks strictly increasing order of multiple numbers.',
             parameters: {
                 regular: null,
                 spread: {
+                    description: 'The given numbers to compare.',
                     types: ['number'],
                     minimum: 2
                 },
@@ -52,9 +59,11 @@ module.exports = {
             })
         },
         'lte': {
+            description: 'Checks increasing order of multiple numbers.',
             parameters: {
                 regular: null,
                 spread: {
+                    description: 'The given numbers to compare.',
                     types: ['number'],
                     minimum: 2
                 },
@@ -66,9 +75,11 @@ module.exports = {
             })
         },
         'gt': {
+            description: 'Checks strictly decreasing order of multiple numbers.',
             parameters: {
                 regular: null,
                 spread: {
+                    description: 'The given numbers to compare.',
                     types: ['number'],
                     minimum: 2
                 },
@@ -80,9 +91,11 @@ module.exports = {
             })
         },
         'gte': {
+            description: 'Checks decreasing order of multiple numbers.',
             parameters: {
                 regular: null,
                 spread: {
+                    description: 'The given numbers to compare.',
                     types: ['number'],
                     minimum: 2
                 },
@@ -94,9 +107,11 @@ module.exports = {
             })
         },
         'even': {
+            description: 'Checks for even numbers.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given number.',
                         types: ['number'],
                         optional: false
                     }
@@ -112,9 +127,11 @@ module.exports = {
             })
         },
         'odd': {
+            description: 'Checks for odd numbers.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given number.',
                         types: ['number'],
                         optional: false
                     }
@@ -130,13 +147,16 @@ module.exports = {
             })
         },
         'nth': {
+            description: 'Checks for multiples of a number.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given number to check.',
                         types: ['number'],
                         optional: false
                     },
                     {
+                        description: 'The factor.',
                         types: ['number'],
                         optional: false
                     }
@@ -153,13 +173,16 @@ module.exports = {
             })
         },
         'round': {
+            description: 'Rounds a number to the nearest digit value at a specific decimal position.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given number.',
                         types: ['number'],
                         optional: false
                     },
                     {
+                        description: 'The number of digits after the floating point to round. The default is zero.',
                         types: ['number'],
                         optional: true
                     }
@@ -177,13 +200,16 @@ module.exports = {
             })
         },
         'floor': {
+            description: 'Rounds a number down at a specific decimal position.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given number.',
                         types: ['number'],
                         optional: false
                     },
                     {
+                        description: 'The number of digits after the floating point to round. The default is zero.',
                         types: ['number'],
                         optional: true
                     }
@@ -201,13 +227,16 @@ module.exports = {
             })
         },
         'ceil': {
+            description: 'Rounds a number up at a specific decimal position.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given number.',
                         types: ['number'],
                         optional: false
                     },
                     {
+                        description: 'The number of digits after the floating point to round. The default is zero.',
                         types: ['number'],
                         optional: true
                     }
@@ -225,13 +254,16 @@ module.exports = {
             })
         },
         'inc': {
+            description: 'Increases a number.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given number.',
                         types: ['number'],
                         optional: false
                     },
                     {
+                        description: 'The increment step. The default value is 1.',
                         types: ['number'],
                         optional: true
                     }
@@ -248,13 +280,16 @@ module.exports = {
             })
         },
         'dec': {
+            description: 'Decreases a number.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given number.',
                         types: ['number'],
                         optional: false
                     },
                     {
+                        description: 'The decrement step. The default value is 1.',
                         types: ['number'],
                         optional: true
                     }
@@ -271,9 +306,11 @@ module.exports = {
             })
         },
         'abs': {
+            description: 'Gets the absolute value of a number.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given number.',
                         types: ['number'],
                         optional: false
                     }
@@ -289,9 +326,11 @@ module.exports = {
             })
         },
         'neg': {
+            description: 'Gets the negated value of a number.',
             parameters: {
                 regular: [
                     {
+                        description: 'The given number.',
                         types: ['number'],
                         optional: false
                     }
