@@ -57,5 +57,10 @@
     "reportPath": "./tmp",
     "reportFile": "test-report.xml",
     "indent": 4
-  }
+  },
+  "keywords": [
+    "handlebars",
+    "handlebars-helpers",
+    "helpers"
+  ]
 }
