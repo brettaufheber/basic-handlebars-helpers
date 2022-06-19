@@ -36,8 +36,35 @@ jobs:
           cp ./.github/workflows/sonar-project.properties ./
           npm run scan
 
+  consistency-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v2
+      - name: Update Node.js to latest stable version
+        run: |
+          sudo npm cache clean -f
+          sudo npm install -g n
+          sudo n stable
+      - name: Install dependencies
+        run: npm install
+      - name: Generate readme file
+        run: npm run make-readme
+      - name: Compare the expected and actual README.md files
+        run: |
+          if [[ "$(git diff ./README.md | wc -l)" -gt "0" ]]; then
+            echo "The README.md file is not up to date." >&2
+            exit 1
+          fi
+      - name: Compare the expected and actual package-lock.json files
+        run: |
+          if [[ "$(git diff ./package-lock.json | wc -l)" -gt "0" ]]; then
+            echo "The package-lock.json file is not up to date." >&2
+            exit 1
+          fi
+
   release:
-    needs: test
+    needs: [ test, consistency-check ]
     if: github.event_name == 'push' && github.ref_name == 'main'
     runs-on: ubuntu-latest
     steps:
