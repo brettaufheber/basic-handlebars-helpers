@@ -85,14 +85,10 @@ jobs:
           snapshot-pattern: ^0\.  # major part is 0
           tag-prefix: v
       - name: Publish to public npm registry
+        if: ${{ steps.tagging.outputs.tag-created == 'yes' }}
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          TAG_CREATED: ${{ steps.tagging.outputs.tag-created }}
         run: |
-          if [[ "$TAG_CREATED" == 'yes' ]]; then
-            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
-            npm config set 'registry=https://registry.npmjs.org'
-            npm publish --access public
-          else
-            echo "Skip publishing"
-          fi
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+          npm config set 'registry=https://registry.npmjs.org'
+          npm publish --access public
